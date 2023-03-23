@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">FTG</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item active">
+        <a class="nav-link" routerLink="/add">User</a>
+      </li>
+       -->
+      <div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+          User
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem routerLink="/getUser">Sign In</button>
+          <button ngbDropdownItem routerLink="/addUser">Sign Up</button>
+        </div>
+      </div>
+      <div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+          Restaurant
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem routerLink="/registerRestaurant">Register</button>
+          <button ngbDropdownItem routerLink="/restaurants">View List</button>
+        </div>
+      </div>
+      <li class="nav-item">
+        <a class="nav-link">{{userName}}</a>
+      </li>
+      <li>
+        <button (click)="logout()" type="button" class="btn btn-outline-danger">
+          Logout
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
