@@ -1,0 +1,82 @@
+<div style="margin:auto;width: max-content;text-align: center;">
+  <div style="margin:auto;text-align: center;width:90%;background-color: aliceblue;border-radius: 2rem;">
+    <table style="width:90%;margin:auto;text-align: center;font-size:x-large;" class="table-light">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Dish Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Serving</th>
+          <th scope="col">Cuisine</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dishes" (click)="getDish(item);">
+          <td>{{item.dishName}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.serving}}</td>
+          <td>{{item.cuisine}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+
+
+  <div style="text-align: center;margin: auto;width:100%;background-color: aliceblue;border-radius: 2rem;">
+    <h1 style="text-align: center;">Update Dish</h1>
+    <br>
+    <form style="text-align: center;margin: auto;" #registerForm="ngForm"
+      (ngSubmit)="onClickSubmit(registerForm); registerForm.reset()">
+      <div class="container">
+        <div class="row">
+          <div class="col-md img">
+            <img max-height="50px" class="card-img-top" src="{{dish.imgURL}}">
+          </div>
+          <div class="col-md">
+            <div class="form-group">
+              <label>Dish Name</label>
+              <input type="text" name="dishName" class="form-control" ngModel="{{dish.dishName}}">
+            </div>
+            <br>
+            <div class="form-group">
+              <label>Price</label>
+              <input type="text" name="price" class="form-control" ngModel="{{dish.price}}">
+            </div>
+            <br>
+            <div class="form-group">
+              <label>Serving</label>
+              <input type="text" name="serving" class="form-control" ngModel="{{dish.serving}}">
+            </div>
+            <br>
+            <br>
+          </div>
+          <div class="col-md">
+            <div class="form-group">
+              <label>Cuisine</label>
+              <input type="text" name="cuisine" class="form-control" ngModel="{{dish.cuisine}}">
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <textarea ngModel="{{dish.description}}" class="form-control" name="description" id="description"
+                rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="formFile" class="form-label">Image</label>
+              <input (change)="onFileSelected($event)" [(ngModel)]="dishdto.file" class="form-control" type="file"
+                id="file" name="file">
+            </div>
+          </div>
+        </div>
+        <button style="margin:1rem;" type="submit" class="btn btn-success">Update</button>
+
+        <button type="button" (click)="deleteDish();" class="btn btn-danger">Delete</button>
+      </div>
+
+    </form>
+    <br>
+  </div>
+  <div id="details">{{details}}</div>
+
+</div>

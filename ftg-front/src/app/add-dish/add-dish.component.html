@@ -1,0 +1,50 @@
+<br><br>
+<div style="text-align: center;margin: auto;max-width: 30%;background-color: aliceblue;border-radius: 2rem;">
+  <h1 style="text-align: center;"> Register Restaurant</h1>
+  <br>
+  <form style="width: fit-content;text-align: center;margin: auto;" #registerForm="ngForm"
+  (ngSubmit)="onClickSubmit(registerForm); registerForm.reset()">
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <div class="form-group">
+            <label>Dish Name</label>
+            <input type="text" name="dishName" class="form-control" ngModel>
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Price</label>
+            <input type="text" name="price" class="form-control" ngModel>
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Serving</label>
+            <input type="text" name="serving" class="form-control" ngModel>
+          </div>
+          <br>
+          <br>
+        </div>
+        <div class="col-md">
+          <div class="form-group">
+            <label>Cuisine</label>
+            <input type="text" name="cuisine" class="form-control" ngModel>
+          </div>
+          <br>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea [(ngModel)]="dish.description" class="form-control" name="description" id="description" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="formFile" class="form-label">Image</label>
+            <input (change)="onFileSelected($event)" [(ngModel)]="dishdto.file" class="form-control" type="file" id="file" name="file">
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+
+  </form>
+  <br>
+  <div id="details">{{details}}</div>
+
+</div>

@@ -1,0 +1,33 @@
+<br>
+<br>
+<div style="margin:auto;width: 40rem;text-align: center;">
+  <button   [routerLink]="[ '/restaurant',id,'addDish']" type="primary" style="margin:1rem;font-size: 2rem;" class="btn btn-primary btn-lg">Add Dish</button>
+  <button  [routerLink]="[ '/restaurant',id,'editDish']" type="primary" style="font-size: 2rem;" class="btn btn-secondary btn-lg">Edit Dishes</button>
+</div>
+<br>
+<div id='dishes'>
+<div  *ngFor="let item of dishes">
+  <div class="card" style="margin:auto;width: 40rem;text-align: center;">
+    <div class="row">
+      <div class="col-md">
+        <img max-height="50px" class="card-img-top" src="{{item.imgURL}}">
+      </div>
+      <div class="col-md">
+        <div class="card-body">
+          <strong>
+            <h5 class="card-title">{{item.dishName}}</h5>
+          </strong>
+          <p class="card-text">{{item.description}}</p>
+          <p class="card-text">Price : {{item.price}}</p>
+          <p class="card-text">Serves : {{item.serving}}</p>
+          <p class="card-text">Cuisine : {{item.cuisine}}</p>
+          <a class="btn btn-primary">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+</div>
+</div>
+<router-outlet></router-outlet>

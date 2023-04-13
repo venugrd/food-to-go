@@ -1,0 +1,8 @@
+<div [ngSwitch]="component">
+      <div *ngSwitchCase="'login'">
+      <app-test-form></app-test-form>
+      </div>
+      <div *ngSwitchCase="'restaurants'">
+        <app-restaurant-list></app-restaurant-list>
+        </div>
+  </div>

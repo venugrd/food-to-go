@@ -11,6 +11,7 @@ import lombok.Data;
 public class Restaurant{
 
     @Id
+    @Column("restaurant_id")
     private long id;
     @Column("owner_name")
     private String ownerName;
@@ -28,8 +29,6 @@ public class Restaurant{
     private String pincode;
     private double latitude;
     private double longitude;
-     
-    //owner, restaurant name, 
 
     
 }

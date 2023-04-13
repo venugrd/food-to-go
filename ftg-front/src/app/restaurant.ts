@@ -1,4 +1,5 @@
 export class Restaurant {
+  id: any
   ownerName!: string;
   restaurantName!: string;
   phoneNo!: string;

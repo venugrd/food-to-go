@@ -2,6 +2,7 @@ package com.ftg.users.usersservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.ClassPathResource;
@@ -11,7 +12,7 @@ import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 
 import io.r2dbc.spi.ConnectionFactory;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 @EnableR2dbcRepositories
 // @ComponentScan("com.ftg.usersservice")
 public class UsersServiceApplication {

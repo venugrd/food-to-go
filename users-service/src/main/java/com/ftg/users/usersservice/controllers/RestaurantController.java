@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ftg.users.usersservice.repos.DishRepository;
 import com.ftg.users.usersservice.repos.RestaurantRepository;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import com.ftg.users.usersservice.models.Dish;
 import com.ftg.users.usersservice.models.Restaurant;
 
 @RestController
@@ -24,6 +26,9 @@ public class RestaurantController {
 
     @Autowired
     RestaurantRepository restaurantRepository;
+
+    @Autowired
+    DishRepository dishRepository;
 
     @PostMapping("/register")
     public Mono<Restaurant> postUser(@RequestBody Restaurant restaurant)
@@ -42,6 +47,13 @@ public class RestaurantController {
     @DeleteMapping("/delete/{id}")
     public Mono<Restaurant> delete(@PathVariable("id") Integer id) {
         return restaurantRepository.deleteById(id);
+    }
+
+    @GetMapping("/{id}/dishes")
+    public Flux<Dish> displayDishes(@PathVariable("id") Integer restaurantId)
+    {
+        return dishRepository.findByRestaurant(restaurantId);
+
     }
     
 }

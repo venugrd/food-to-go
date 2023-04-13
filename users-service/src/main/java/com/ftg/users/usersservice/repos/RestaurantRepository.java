@@ -1,7 +1,6 @@
 package com.ftg.users.usersservice.repos;
 
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 import com.ftg.users.usersservice.models.Restaurant;
 

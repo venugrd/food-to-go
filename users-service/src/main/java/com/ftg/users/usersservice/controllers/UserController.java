@@ -23,7 +23,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.util.function.Tuple2;
 
-import com.ftg.users.usersservice.Dao.RegisterStatus;
+import com.ftg.users.usersservice.dto.RegisterStatus;
 import com.ftg.users.usersservice.models.User;
 
 @RestController

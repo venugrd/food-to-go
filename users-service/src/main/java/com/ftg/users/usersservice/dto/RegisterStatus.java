@@ -1,4 +1,4 @@
-package com.ftg.users.usersservice.Dao;
+package com.ftg.users.usersservice.dto;
 
 import lombok.Data;
 
