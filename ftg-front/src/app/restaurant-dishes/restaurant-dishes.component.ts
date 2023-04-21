@@ -1,3 +1,4 @@
+import { CartService } from './../service/cart.service';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
@@ -13,14 +14,14 @@ import { Observable } from 'rxjs';
 export class RestaurantDishesComponent {
   id: any;
   private baseUrl = "http://localhost:8080/restaurant/";
-  dishes : Dish[] =[]
+  dishes : any[] =[]
 
   getDishes(): Observable<Dish[]>{
     return this.http.get<Dish[]>(`${this.baseUrl}`+this.id+`/dishes`);
   }
 
 
-  constructor(private http: HttpClient,private router : ActivatedRoute) { }
+  constructor(private http: HttpClient,private router : ActivatedRoute, private cartService : CartService) { }
 
   ngOnInit() {
     this.router.params.subscribe(params => {
@@ -28,6 +29,9 @@ export class RestaurantDishesComponent {
      });
      this.getDishes().subscribe((data: Dish[]) => {
       this.dishes = data;
+      this.dishes.forEach((a:any)=>{
+          Object.assign(a,{quantity:1,total:a.price})
+      });
       console.log(this.dishes);
     });
    }
@@ -37,6 +41,11 @@ export class RestaurantDishesComponent {
     const div =document.getElementById("dishes");
     if(div)
       div.style.display='none'
+   }
+
+   addToCart(dish : any)
+   {
+      this.cartService.addToCart(dish);
    }
 
 }

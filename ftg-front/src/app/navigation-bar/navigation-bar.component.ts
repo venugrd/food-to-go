@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -12,7 +13,8 @@ export class NavigationBarComponent implements OnInit{
   menuType:String ="default";
   userName = sessionStorage.getItem("username");
 
-  constructor(private router : Router) { }
+  public cartQuantity : number = 0;
+  constructor(private router : Router,private cartService : CartService) { }
 
   ngOnInit(): void {
     this.router.events.subscribe((val :any) =>
@@ -24,6 +26,11 @@ export class NavigationBarComponent implements OnInit{
       }
       else
         this.menuType='default';
+    });
+
+    this.cartService.getDishes()
+    .subscribe(res=>{
+        this.cartQuantity = res.length;
     });
   }
 

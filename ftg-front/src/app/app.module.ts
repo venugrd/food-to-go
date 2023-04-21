@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { AddDishComponent } from './add-dish/add-dish.component';
 import { EditDishComponent } from './edit-dish/edit-dish.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { EditDishComponent } from './edit-dish/edit-dish.component';
     RestaurantDishesComponent,
     HomeComponent,
     AddDishComponent,
-    EditDishComponent
+    EditDishComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

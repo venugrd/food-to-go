@@ -10,7 +10,7 @@
   <div class="card" style="margin:auto;width: 40rem;text-align: center;">
     <div class="row">
       <div class="col-md">
-        <img max-height="50px" class="card-img-top" src="{{item.imgURL}}">
+        <img style="object-fit:fill;" height="300px" class="card-img-top" src="{{item.imgURL}}">
       </div>
       <div class="col-md">
         <div class="card-body">
@@ -21,7 +21,7 @@
           <p class="card-text">Price : {{item.price}}</p>
           <p class="card-text">Serves : {{item.serving}}</p>
           <p class="card-text">Cuisine : {{item.cuisine}}</p>
-          <a class="btn btn-primary">Add to cart</a>
+          <a (click)="addToCart(item)" class="btn btn-primary">Add to cart</a>
         </div>
       </div>
     </div>

@@ -48,7 +48,7 @@ export class EditDishComponent {
   }
 
   ngOnInit() {
-    this.router.params.subscribe(params => {
+    this.router.parent?.params.subscribe(params => {
      this.id = params['id'];
      });
      this.getDishes().subscribe((data: Dish[]) => {

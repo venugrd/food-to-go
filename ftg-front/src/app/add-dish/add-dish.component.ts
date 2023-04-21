@@ -30,7 +30,7 @@ export class AddDishComponent {
   private baseUrl = 'http://localhost:8080/dish/add';
 
   ngOnInit() {
-    this.router.params.subscribe((params) => {
+    this.router.parent?.params.subscribe((params) => {
       this.id = params['id'];
     });
   }

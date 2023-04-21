@@ -1,0 +1,55 @@
+<div style="text-align: center;margin: auto;width:fit-content;background-color: aliceblue;border-radius: 2rem;">
+  <h1 style="text-align: center;">&nbsp;Cart&nbsp;</h1>
+</div>
+
+<br><br>
+<ng-container *ngIf="dishes.length == 0">
+  <div style="text-align: center;margin: auto;width:fit-content;background-color: aliceblue;border-radius: 2rem;">
+    <h1 style="text-align: center;">&nbsp;Cart is empty&nbsp;</h1>
+  </div>
+
+
+</ng-container>
+
+<ng-container *ngIf="dishes.length != 0">
+  <div style="text-align: center;margin: auto;width:90%;background-color: aliceblue;border-radius: 2rem;">
+    <table style="width:90%;margin:auto;text-align: center;font-size:x-large;" class="table-light">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Dish Name</th>
+          <th scope="col">Item Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dishes">
+          <td>{{item.dishName}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.total}}</td>
+          <!-- <td><button (click)="removeDish(item)" type="button" class="btn btn-danger">Remove</button></td> -->
+          <td>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span><button class="btn btn-outline-secondary btn-number" (click)="removeDish(item)">-</button></span>
+              </div>
+              <span>&nbsp;{{item.quantity}}&nbsp;</span>
+              <div class="input-group-append">
+                <span><button class="btn btn-outline-secondary btn-number" (click)="addToCart(item)">+</button></span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <br>
+        <tr>
+          <td><button [routerLink]="['/restaurants']" style="margin-left: 1rem;" type="button" class="btn btn-primary">Add Dishes</button></td>
+          <td colspan="2"></td>
+          <td>Grand Total : {{finalTotal}}</td>
+          <td><button (click)="emptyCart()" type="button" class="btn btn-danger">Empty Cart</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</ng-container>

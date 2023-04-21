@@ -8,6 +8,7 @@ import { GetUserComponent } from './get-user/get-user.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { AddDishComponent } from './add-dish/add-dish.component';
 import { EditDishComponent } from './edit-dish/edit-dish.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: 'getUser', component: GetUserComponent,data: { breadcrumb: 'Login'}},
@@ -22,6 +23,7 @@ const routes: Routes = [
   },
   {path: 'addDish/:id', component: AddDishComponent},
   {path: 'editDish/:id', component: EditDishComponent},
+  {path: 'cart', component: CartComponent},
   {path: "", component: HomeComponent}
 ];
 @NgModule({
